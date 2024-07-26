@@ -1,0 +1,52 @@
+<div class="container center" id="container">
+	<div class="form-container sign-up-container">
+		<form action="#">
+			<h1>Create Account</h1>
+			<div class="social-container">
+				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+			</div>
+			<span>or use your email for registration</span>
+			<input type="text" placeholder="Name" />
+			<input type="email" placeholder="Email" />
+			<input type="password" placeholder="Password" />
+			<button>Sign Up</button>
+		</form>
+	</div>
+	<div class="form-container sign-in-container">
+		<form [formGroup]="loginForm" (ngSubmit)="loginFormSubmit()">
+
+			<h1>Sign in</h1>
+          
+			<mat-form-field class="full-width-input">
+			  <input matInput placeholder="Username" formControlName="username" autocomplete="off">
+			  <mat-error *ngIf="l.username.hasError('required') && l.username.touched" >Username is required.</mat-error>
+			</mat-form-field>
+		  
+			<mat-form-field class="full-width-input">
+			  <input matInput type="password" placeholder="Password" formControlName="password" autocomplete="off">
+			  <mat-error *ngIf="l.password.hasError('required') && l.password.touched" >Password is required.</mat-error>
+			  <mat-error *ngIf="l.password.hasError('minlength') && l.password.touched" >Password must be at least 6 characters.</mat-error>
+			</mat-form-field>
+			<div class="btn-group">
+				<button class="d-inline" mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid">Login</button>
+				<button class="d-inline" mat-raised-button color="warn" type="reset" [disabled]="!loginForm.valid && !loginForm.touched">Reset</button>
+			</div>
+		 </form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h1>Welcome Back!</h1>
+				<p>To keep connected with us please login with your personal info</p>
+				<button class="ghost" id="signIn" (click)="toggleRightPanel()">Sign In</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1>Hello, Friend!</h1>
+				<p>Enter your personal details and start journey with us</p>
+				<button class="ghost" id="signUp" (click)="toggleRightPanel()">Sign Up</button>
+			</div>
+		</div>
+	</div>
+</div>
