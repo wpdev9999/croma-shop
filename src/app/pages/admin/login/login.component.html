@@ -1,24 +1,36 @@
 <div class="container center" id="container">
 	<div class="form-container sign-up-container">
-		<form action="#">
-			<h1>Create Account</h1>
+		
+			<p>Create Account or use your email for registration</p>
 			<div class="social-container">
-				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+				<a href="#" class="social"><mat-icon aria-hidden="false" aria-label="Facebook icon" fontIcon="facebook"></mat-icon></a>
+				<a href="#" class="social"><mat-icon aria-hidden="false" aria-label="Facebook icon" fontIcon="facebook"></mat-icon></a>
+				<a href="#" class="social"><mat-icon aria-hidden="false" aria-label="Facebook icon" fontIcon="facebook"></mat-icon></a>
 			</div>
-			<span>or use your email for registration</span>
-			<input type="text" placeholder="Name" />
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
-			<button>Sign Up</button>
-		</form>
+			<div>
+			<form [formGroup]="newUserForm" (ngSubmit)="signupFormSubmit()">
+				<h1>Sign Up</h1>
+						<mat-form-field>
+						  <input matInput placeholder="Username" formControlName="username">
+						</mat-form-field>
+						<mat-form-field>
+						  <input matInput placeholder="Email" formControlName="email">
+						</mat-form-field>
+						<mat-form-field>
+						  <input type="password" matInput placeholder="Password" formControlName="password">
+						</mat-form-field>
+						<div class="btn-group">
+						<button  class="d-inline" mat-raised-button color="primary" type="submit"
+            			[disabled]="!newUserForm.valid || !newUserForm.touched">Sign Up</button>
+          				<button class="d-inline" mat-raised-button color="warn" type="reset" [disabled]="!newUserForm.touched">Reset</button>
+						</div>
+			 </form>
+		</div>
 	</div>
 	<div class="form-container sign-in-container">
 		<form [formGroup]="loginForm" (ngSubmit)="loginFormSubmit()">
 
 			<h1>Sign in</h1>
-          
 			<mat-form-field class="full-width-input">
 			  <input matInput placeholder="Username" formControlName="username" autocomplete="off">
 			  <mat-error *ngIf="l.username.hasError('required') && l.username.touched" >Username is required.</mat-error>
