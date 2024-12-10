@@ -1,8 +1,7 @@
 <div class="container center" id="container">
 	<div class="form-container sign-up-container">
-		
-			<p>Create Account or use your email for registration</p>
 			<div class="social-container">
+				<h5>Create Account or use your email for registration</h5>
 				<a href="#" class="social"><mat-icon aria-hidden="false" aria-label="Facebook icon" fontIcon="facebook"></mat-icon></a>
 				<a href="#" class="social"><mat-icon aria-hidden="false" aria-label="Facebook icon" fontIcon="facebook"></mat-icon></a>
 				<a href="#" class="social"><mat-icon aria-hidden="false" aria-label="Facebook icon" fontIcon="facebook"></mat-icon></a>
@@ -32,8 +31,8 @@
 
 			<h1>Sign in</h1>
 			<mat-form-field class="full-width-input">
-			  <input matInput placeholder="Username" formControlName="username" autocomplete="off">
-			  <mat-error *ngIf="l.username.hasError('required') && l.username.touched" >Username is required.</mat-error>
+			  <input matInput placeholder="Email" formControlName="email" autocomplete="off">
+			  <mat-error *ngIf="l.email.hasError('required') && l.email.touched" >Email is required.</mat-error>
 			</mat-form-field>
 		  
 			<mat-form-field class="full-width-input">

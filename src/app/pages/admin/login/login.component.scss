@@ -75,7 +75,7 @@ form {
 	overflow: hidden;
 	width: 768px;
 	max-width: 100%;
-	min-height: 480px;
+	min-height: 500px;
 }
 
 .form-container {
@@ -100,6 +100,7 @@ form {
 	width: 50%;
 	opacity: 0;
 	z-index: 1;
+	text-align: center;
 }
 
 .container.right-panel-active .sign-up-container {
@@ -189,7 +190,7 @@ form {
 }
 
 .social-container {
-	margin: 20px 0;
+	margin: 2px 0;
 }
 
 .social-container a {
